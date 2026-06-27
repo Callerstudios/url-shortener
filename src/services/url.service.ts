@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
 import { db } from "../config/database";
-import { RowDataPacket } from "mysql2";
 import { UrlRow } from "../types/url.types";
 
 export async function createShortUrl(url: string) {
