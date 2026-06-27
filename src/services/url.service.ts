@@ -44,3 +44,16 @@ export async function incrementClickCount(shortCode: string) {
     [shortCode],
   );
 }
+export async function initDatabase() {
+  await db.query(`
+    CREATE TABLE IF NOT EXISTS urls (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      original_url TEXT NOT NULL,
+      short_code VARCHAR(20) NOT NULL UNIQUE,
+      click_count INT NOT NULL DEFAULT 0,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
+  console.log("Database initialized.");
+}

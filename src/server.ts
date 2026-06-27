@@ -1,5 +1,6 @@
 import express from "express";
 import urlRoutes from "./routes/url.routes";
+import { initDatabase } from "./services/url.service";
 
 const app = express();
 
@@ -83,13 +84,21 @@ app.get("/", (req, res) => {
 });
 app.use(urlRoutes);
 
+async function start() {
+    const PORT = process.env.ALWAYSDATA_HTTPD_PORT || 3000;
+  try {
+    await initDatabase();
 
-const PORT = process.env.ALWAYSDATA_HTTPD_PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server listening on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
+start();
 
 
 
