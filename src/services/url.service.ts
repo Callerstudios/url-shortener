@@ -16,7 +16,7 @@ export async function createShortUrl(url: string) {
   return {
     originalUrl: url,
     shortCode,
-    shortUrl: `http://localhost:3000/${shortCode}`,
+    shortUrl: `https://url-shortener-o4su.onrender.com/${shortCode}`,
   };
 }
 export async function getOriginalUrl(shortCode: string) {

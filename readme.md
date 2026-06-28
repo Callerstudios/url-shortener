@@ -53,7 +53,7 @@ DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=url_shortener
 
-BASE_URL=http://localhost:3000
+BASE_URL=https://url-shortener-o4su.onrender.com/
 ```
 
 4. Create the database.
@@ -99,7 +99,7 @@ Content-Type: application/json
 
 ```json
 {
-  "shortUrl": "http://localhost:3000/example",
+  "shortUrl": "https://url-shortener-o4su.onrender.com//example",
   "originalUrl": "https://example.com/very/long/url"
 }
 ```
