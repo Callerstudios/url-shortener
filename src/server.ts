@@ -7,8 +7,12 @@ const app = express();
 
 
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send(html);
+app.use(express.static("src/public"));
+
+app.get("/", (_, res) => {
+  res.sendFile("index.html", {
+    root: "src/public",
+  });
 });
 app.use(urlRoutes);
 
